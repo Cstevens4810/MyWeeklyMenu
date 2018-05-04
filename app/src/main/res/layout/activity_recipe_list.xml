@@ -8,20 +8,22 @@
 
     <TextView
         android:id="@+id/breakListView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="371dp"
+        android:layout_height="43dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/breakfastTitle"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/breakfastList"
-        app:layout_constraintEnd_toEndOf="@+id/lunListView"
-        app:layout_constraintStart_toStartOf="@+id/breakfastList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/breakfastList"
-        android:layout_width="352dp"
+        android:layout_width="371dp"
         android:layout_height="0dp"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/lunListView"
@@ -32,19 +34,21 @@
 
     <TextView
         android:id="@+id/lunListView"
-        android:layout_width="174dp"
-        android:layout_height="0dp"
+        android:layout_width="371dp"
+        android:layout_height="59dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/lunchTitle"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/lunchList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/breakfastList" />
 
     <ListView
         android:id="@+id/lunchList"
-        android:layout_width="0dp"
+        android:layout_width="371dp"
         android:layout_height="0dp"
         android:layout_marginBottom="23dp"
         android:layout_marginEnd="16dp"
@@ -56,19 +60,21 @@
 
     <TextView
         android:id="@+id/dinnerListView"
-        android:layout_width="wrap_content"
+        android:layout_width="371dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="9dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/dinnerTitle"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/dinnerList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lunchList" />
 
     <ListView
         android:id="@+id/dinnerList"
-        android:layout_width="0dp"
+        android:layout_width="371dp"
         android:layout_height="0dp"
         android:layout_marginBottom="92dp"
         android:layout_marginEnd="16dp"
