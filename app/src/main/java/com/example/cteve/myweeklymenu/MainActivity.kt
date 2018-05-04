@@ -9,7 +9,10 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 
+
 class MainActivity : AppCompatActivity() {
+
+    var foundRecipe = Recipe("",false,false,false,"")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,8 +62,8 @@ class MainActivity : AppCompatActivity() {
     //Function to find the recipe when button is clicked
     //Parameters: The name of the recipe as a string
     //Returns a recipe object
-    fun findRecipe(recipeName: String): Recipe {
-
+    fun findRecipe(recipeName: String): Boolean {
+        return false
     }
 
     //Function to display the recipe when button is clicked
@@ -68,20 +71,20 @@ class MainActivity : AppCompatActivity() {
     fun displayRecipe(view: View) {
         val button: Button
         button = view as Button
-
         val recipeName = button.text.toString()
-        val recipe = findRecipe(recipeName)
+        if (findRecipe(recipeName)) {
+            val recipe = foundRecipe
 
-        //Display the recipe using an AlertDialog
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle(recipeName)
+            //Display the recipe using an AlertDialog
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle(recipeName)
 
-        builder.setMessage(recipe.recipe)
+            builder.setMessage(recipe.toString())
 
-        builder.setPositiveButton("Ok"){
-            dialog,which-> dialog.cancel()
+            builder.setPositiveButton("Ok") { dialog, which ->
+                dialog.cancel()
+            }
         }
-
     }
 }
 

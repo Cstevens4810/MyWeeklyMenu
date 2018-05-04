@@ -82,8 +82,6 @@ class recipeList : AppCompatActivity() {
         var lunch = false
         var dinner = false
 
-        val btnSave = subView.findViewById<Button>(R.id.save) as Button
-
         boxB.setOnCheckedChangeListener { buttonView, isChecked ->
             breakfast = true
         }
@@ -93,14 +91,20 @@ class recipeList : AppCompatActivity() {
         boxD.setOnCheckedChangeListener { buttonView, isChecked ->
             dinner = true
         }
-        btnSave.setOnClickListener{
+
+        builder.setPositiveButton("Save Recipe") { dialog, which ->
             var rName = nameText.text.toString()
             var rDetails = detailsText.text.toString()
             var newRecipe = Recipe(rName, breakfast, lunch, dinner, rDetails)
+            var text = newRecipe.toString()
 
+            Toast.makeText(applicationContext,newRecipe.toString(), Toast.LENGTH_LONG).show()
             recipes.add(newRecipe)
-
             display()
+        }
+
+        builder.setNegativeButton("Cancel") {dialog, which ->
+            dialog.cancel()
         }
 
         builder.setView(subView)
@@ -114,18 +118,18 @@ class recipeList : AppCompatActivity() {
         val lList = findViewById<ListView>(R.id.lunchList)
         val dList = findViewById<ListView>(R.id.dinnerList)
 
-        var tempBList = ArrayList<Recipe>()
-        var tempLList = ArrayList<Recipe>()
-        var tempDList = ArrayList<Recipe>()
+        var tempBList = ArrayList<String>()
+        var tempLList = ArrayList<String>()
+        var tempDList = ArrayList<String>()
         for (recipe in recipes){
             if (recipe.breakfast){
-                tempBList.add(recipe)
+                tempBList.add(recipe.name)
             }
             if (recipe.lunch){
-                tempLList.add(recipe)
+                tempLList.add(recipe.name)
             }
             if (recipe.dinner){
-                tempDList.add(recipe)
+                tempDList.add(recipe.name)
             }
         }
 
@@ -137,6 +141,31 @@ class recipeList : AppCompatActivity() {
 
         val adapterD = ArrayAdapter(this, android.R.layout.simple_list_item_1, tempDList)
         dList.adapter = adapterD
+
+        bList.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            // Get the selected item text from ListView
+            val selectedItem = parent.getItemAtPosition(position) as String
+
+
+
+            // Display the selected item text on TextView
+            val builder = AlertDialog.Builder(this@recipeList)
+            builder.setTitle(selectedItem)
+            for (recipe in recipes){
+                if (recipe.name == selectedItem){
+                    builder.setMessage(recipe.recipe)
+                }
+            }
+            val dialog: AlertDialog = builder.create()
+
+            dialog.show()
+
+        }
+    }
+
+    fun returnRecipeList():ArrayList<Recipe>{
+        return recipes
+
     }
 }
 
