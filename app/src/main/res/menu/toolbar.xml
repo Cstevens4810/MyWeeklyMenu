@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_settings"
+        android:title="Settings"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_generate"
+        android:title="Generate a Menu"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_list"
+        android:title="Recipe List"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_main"
+        android:title="This Weeks Menu"
+        app:showAsAction="never"/>
+
+</menu>
