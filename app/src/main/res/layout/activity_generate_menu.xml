@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cteve.myweeklymenu.generateMenu">
+
+    <Button
+        android:id="@+id/mondayButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="167dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="53dp"
+        android:text="Monday"
+        app:layout_constraintEnd_toStartOf="@+id/monDinBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tuesdayButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="167dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
+        android:text="Tuesday"
+        app:layout_constraintEnd_toStartOf="@+id/tuesDinBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mondayButton" />
+
+    <Button
+        android:id="@+id/wednesdayButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="167dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:text="Wednesday"
+        app:layout_constraintEnd_toStartOf="@+id/wednsDinBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tuesdayButton" />
+
+    <Button
+        android:id="@+id/thursdayButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="167dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:text="Thursday"
+        app:layout_constraintEnd_toStartOf="@+id/thursDinBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wednesdayButton" />
+
+    <Button
+        android:id="@+id/fridayButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="167dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
+        android:text="Friday"
+        app:layout_constraintEnd_toStartOf="@+id/friDinBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thursdayButton" />
+
+    <Button
+        android:id="@+id/saturdayButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="167dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:text="Saturday"
+        app:layout_constraintEnd_toStartOf="@+id/satDinBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fridayButton" />
+
+    <Button
+        android:id="@+id/sundayButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="167dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Sunday"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sunDinBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saturdayButton" />
+
+    <TextView
+        android:id="@+id/breakfastView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="16dp"
+        android:text="Breakfast"
+        app:layout_constraintStart_toEndOf="@+id/mondayButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lunchView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Lunch"
+        app:layout_constraintEnd_toStartOf="@+id/dinnerView"
+        app:layout_constraintStart_toEndOf="@+id/breakfastView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dinnerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="54dp"
+        android:layout_marginTop="16dp"
+        android:text="Dinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/monBreakBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/monLunBox"
+        app:layout_constraintStart_toEndOf="@+id/mondayButton"
+        app:layout_constraintTop_toBottomOf="@+id/breakfastView" />
+
+    <CheckBox
+        android:id="@+id/monLunBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/monDinBox"
+        app:layout_constraintStart_toEndOf="@+id/monBreakBox"
+        app:layout_constraintTop_toBottomOf="@+id/lunchView" />
+
+    <CheckBox
+        android:id="@+id/monDinBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="61dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mondayButton"
+        app:layout_constraintTop_toBottomOf="@+id/dinnerView" />
+
+    <CheckBox
+        android:id="@+id/tuesBreakBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tuesLunBox"
+        app:layout_constraintEnd_toStartOf="@+id/tuesLunBox"
+        app:layout_constraintStart_toEndOf="@+id/tuesdayButton" />
+
+    <CheckBox
+        android:id="@+id/tuesLunBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="33dp"
+        app:layout_constraintEnd_toStartOf="@+id/tuesDinBox"
+        app:layout_constraintStart_toEndOf="@+id/tuesBreakBox"
+        app:layout_constraintTop_toBottomOf="@+id/monLunBox" />
+
+    <CheckBox
+        android:id="@+id/tuesDinBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="61dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tuesLunBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tuesdayButton" />
+
+    <CheckBox
+        android:id="@+id/wednsBreakBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/wednsLunBox"
+        app:layout_constraintEnd_toStartOf="@+id/wednsLunBox"
+        app:layout_constraintStart_toEndOf="@+id/wednesdayButton" />
+
+    <CheckBox
+        android:id="@+id/wednsLunBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="31dp"
+        app:layout_constraintEnd_toStartOf="@+id/wednsDinBox"
+        app:layout_constraintStart_toEndOf="@+id/wednsBreakBox"
+        app:layout_constraintTop_toBottomOf="@+id/tuesLunBox" />
+
+    <CheckBox
+        android:id="@+id/wednsDinBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="61dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/wednsLunBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/wednesdayButton" />
+
+    <CheckBox
+        android:id="@+id/thursBreakBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/thursLunBox"
+        app:layout_constraintEnd_toStartOf="@+id/thursLunBox"
+        app:layout_constraintStart_toEndOf="@+id/thursdayButton" />
+
+    <CheckBox
+        android:id="@+id/thursLunBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/thursDinBox"
+        app:layout_constraintStart_toEndOf="@+id/thursBreakBox"
+        app:layout_constraintTop_toBottomOf="@+id/wednsLunBox" />
+
+    <CheckBox
+        android:id="@+id/thursDinBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="61dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/thursLunBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/thursdayButton" />
+
+    <CheckBox
+        android:id="@+id/friBreakBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/friLunBox"
+        app:layout_constraintEnd_toStartOf="@+id/friLunBox"
+        app:layout_constraintStart_toEndOf="@+id/fridayButton" />
+
+    <CheckBox
+        android:id="@+id/friLunBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/satLunBox"
+        app:layout_constraintEnd_toStartOf="@+id/friDinBox"
+        app:layout_constraintStart_toEndOf="@+id/friBreakBox" />
+
+    <CheckBox
+        android:id="@+id/friDinBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="61dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/friLunBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fridayButton" />
+
+    <CheckBox
+        android:id="@+id/satBreakBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/satLunBox"
+        app:layout_constraintEnd_toStartOf="@+id/satLunBox"
+        app:layout_constraintStart_toEndOf="@+id/saturdayButton" />
+
+    <CheckBox
+        android:id="@+id/satLunBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/sunLunBox"
+        app:layout_constraintEnd_toStartOf="@+id/satDinBox"
+        app:layout_constraintStart_toEndOf="@+id/satBreakBox" />
+
+    <CheckBox
+        android:id="@+id/satDinBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="61dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/satLunBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/saturdayButton" />
+
+    <CheckBox
+        android:id="@+id/sunBreakBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/sunLunBox"
+        app:layout_constraintEnd_toStartOf="@+id/sunLunBox"
+        app:layout_constraintStart_toEndOf="@+id/sundayButton" />
+
+    <CheckBox
+        android:id="@+id/sunLunBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/sunDinBox"
+        app:layout_constraintEnd_toStartOf="@+id/sunDinBox"
+        app:layout_constraintStart_toEndOf="@+id/sunBreakBox" />
+
+    <CheckBox
+        android:id="@+id/sunDinBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="47dp"
+        android:layout_marginEnd="61dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sundayButton" />
+
+</android.support.constraint.ConstraintLayout>
