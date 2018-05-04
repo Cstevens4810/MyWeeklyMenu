@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar, menu)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        val main = menu!!.findItem(R.id.action_main)
+        main.isVisible = false
         return true
     }
 
@@ -33,6 +34,12 @@ class MainActivity : AppCompatActivity() {
 
         R.id.action_list->{
             val intent = Intent(this, recipeList::class.java)
+            this.startActivity(intent)
+            true
+        }
+
+        R.id.action_main->{
+            val intent = Intent(this, MainActivity::class.java)
             this.startActivity(intent)
             true
         }
