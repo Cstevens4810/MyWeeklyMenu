@@ -17,5 +17,8 @@
         android:title="This Weeks Menu"
         app:showAsAction="never"/>
 
+    <item android:id="@+id/action_addRecipe"
+        android:title="ADD"
+        app:showAsAction="always"/>
 
 </menu>
