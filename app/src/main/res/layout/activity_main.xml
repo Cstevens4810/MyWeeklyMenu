@@ -91,6 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
         android:text=""
+        android:onClick="displayRecipe"
         app:layout_constraintBaseline_toBaselineOf="@+id/monLunButton"
         app:layout_constraintEnd_toStartOf="@+id/monLunButton"
         app:layout_constraintStart_toEndOf="@+id/mondayView" />
