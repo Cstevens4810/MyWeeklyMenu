@@ -1,5 +1,6 @@
 package com.example.cteve.myweeklymenu
 
+import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -7,10 +8,16 @@ import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
 import android.content.DialogInterface
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.widget.*
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_recipe_list.*
 import kotlinx.android.synthetic.main.dialog_layout.*
+import com.google.gson.reflect.TypeToken
+
+
 
 
 class recipeList : AppCompatActivity() {
@@ -20,14 +27,30 @@ class recipeList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_list)
+        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        if(prefs.getString("potato",null)!=null) {
+            getList()
+        }
+        else{}
+        display()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.recipe_toolbar, menu)
         val recipe = menu!!.findItem(R.id.action_list)
         recipe.isVisible = false
-        display()
         return true
+    }
+
+    override fun onStop()
+    {
+        super.onStop()
+        saveList(recipes)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        saveList(recipes)
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
@@ -166,6 +189,40 @@ class recipeList : AppCompatActivity() {
     fun returnRecipeList():ArrayList<Recipe>{
         return recipes
 
+    }
+
+    //
+    fun saveList(list:ArrayList<Recipe>)
+    {
+        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+
+        val editor : SharedPreferences.Editor = prefs.edit()
+
+        val gson = Gson()
+        val json:String = gson.toJson(list)
+        editor.putString("potato", json)
+        editor.apply()
+    }
+
+    fun getList() {
+
+        val prefs = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+
+        val gson = Gson()
+        val json = prefs.getString("potato", null)
+
+        val type = object : TypeToken<ArrayList<String>>() {
+
+        }.type
+        val list: ArrayList<String> = gson.fromJson(json, type)
+
+        var index =0
+        for(i in list)
+        {
+            val recipe = Recipe(list[index],list[index+1].toBoolean(), list[index+2].toBoolean(), list[index+3].toBoolean(), list[index+4])
+            recipes.add(recipe)
+            index += index +5
+        }
     }
 }
 
