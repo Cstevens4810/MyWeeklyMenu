@@ -163,8 +163,27 @@ class recipeList : AppCompatActivity() {
         }
     }
 
-    fun returnRecipeList():ArrayList<Recipe>{
-        return recipes
+
+    fun returnRecipeList(){
+        var recipe2Find = ""
+        var foundRecipe = ArrayList<String>()
+        if (intent != null){
+            if(intent.extras != null){
+                recipe2Find = intent.extras.getString("recipeName")
+            }
+        }
+
+        for (recipe in recipes){
+            if (recipe.name == recipe2Find){
+                foundRecipe[0] = recipe.name
+                foundRecipe[1] = recipe.recipe
+            }
+        }
+
+        val intent2 = Intent(this, MainActivity::class.java)
+        intent2.putExtra("foundRecipe", foundRecipe)
+        startActivity(intent2)
+
 
     }
 }

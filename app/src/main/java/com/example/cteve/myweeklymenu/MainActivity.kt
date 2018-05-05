@@ -62,8 +62,20 @@ class MainActivity : AppCompatActivity() {
     //Function to find the recipe when button is clicked
     //Parameters: The name of the recipe as a string
     //Returns a recipe object
-    fun findRecipe(recipeName: String): Boolean {
-        return false
+    fun findRecipe(recipeName: String): ArrayList<String> {
+        var recipe = ArrayList<String>()
+        val intent1 = Intent(this, recipeList::class.java)
+        intent1.putExtra("recipeName", recipeName)
+        startActivity(intent1)
+
+        if (intent!=null){
+            if (intent.extras != null){
+                recipe = intent.extras.getStringArrayList("recipeName")
+            }
+        }
+
+        return recipe
+
     }
 
     //Function to display the recipe when button is clicked
@@ -72,19 +84,18 @@ class MainActivity : AppCompatActivity() {
         val button: Button
         button = view as Button
         val recipeName = button.text.toString()
-        if (findRecipe(recipeName)) {
-            val recipe = foundRecipe
+        var foundRecipe = findRecipe(recipeName)
+        val recipe = foundRecipe
 
-            //Display the recipe using an AlertDialog
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle(recipeName)
+        //Display the recipe using an AlertDialog
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(foundRecipe[0])
+        builder.setMessage(foundRecipe[1])
 
-            builder.setMessage(recipe.toString())
-
-            builder.setPositiveButton("Ok") { dialog, which ->
-                dialog.cancel()
-            }
+        builder.setPositiveButton("Ok") { dialog, which ->
+            dialog.cancel()
         }
+
     }
 }
 
