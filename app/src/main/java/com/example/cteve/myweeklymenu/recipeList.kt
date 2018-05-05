@@ -171,7 +171,41 @@ class recipeList : AppCompatActivity() {
             // Get the selected item text from ListView
             val selectedItem = parent.getItemAtPosition(position) as String
 
+            // Display the selected item text on TextView
+            val builder = AlertDialog.Builder(this@recipeList)
+            builder.setTitle(selectedItem)
+            for (recipe in recipes){
+                if (recipe.name == selectedItem){
+                    builder.setMessage(recipe.recipe)
+                }
+            }
+            val dialog: AlertDialog = builder.create()
 
+            dialog.show()
+
+        }
+
+        lList.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            // Get the selected item text from ListView
+            val selectedItem = parent.getItemAtPosition(position) as String
+
+            // Display the selected item text on TextView
+            val builder = AlertDialog.Builder(this@recipeList)
+            builder.setTitle(selectedItem)
+            for (recipe in recipes){
+                if (recipe.name == selectedItem){
+                    builder.setMessage(recipe.recipe)
+                }
+            }
+            val dialog: AlertDialog = builder.create()
+
+            dialog.show()
+
+        }
+
+        dList.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            // Get the selected item text from ListView
+            val selectedItem = parent.getItemAtPosition(position) as String
 
             // Display the selected item text on TextView
             val builder = AlertDialog.Builder(this@recipeList)
