@@ -10,12 +10,14 @@ import android.view.MenuItem
 import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.*
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_recipe_list.*
 import kotlinx.android.synthetic.main.dialog_layout.*
 import com.google.gson.reflect.TypeToken
+import com.google.gson.GsonBuilder
 
 
 
@@ -194,6 +196,8 @@ class recipeList : AppCompatActivity() {
     //
     fun saveList(list:ArrayList<Recipe>)
     {
+        //Toast.makeText(applicationContext,"poop", Toast.LENGTH_LONG).show()
+
         val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
 
         val editor : SharedPreferences.Editor = prefs.edit()
@@ -206,23 +210,14 @@ class recipeList : AppCompatActivity() {
 
     fun getList() {
 
-        val prefs = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
 
-        val gson = Gson()
+        val gson = GsonBuilder().setPrettyPrinting().create()
         val json = prefs.getString("potato", null)
 
-        val type = object : TypeToken<ArrayList<String>>() {
+        val list: ArrayList<Recipe> = gson.fromJson(json, object: TypeToken<ArrayList<Recipe>>() {}.type)
 
-        }.type
-        val list: ArrayList<String> = gson.fromJson(json, type)
-
-        var index =0
-        for(i in list)
-        {
-            val recipe = Recipe(list[index],list[index+1].toBoolean(), list[index+2].toBoolean(), list[index+3].toBoolean(), list[index+4])
-            recipes.add(recipe)
-            index += index +5
-        }
+        recipes = list
     }
 }
 
