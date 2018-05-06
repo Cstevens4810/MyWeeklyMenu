@@ -16,6 +16,9 @@
     <item android:id="@+id/action_main"
         android:title="This Weeks Menu"
         app:showAsAction="never"/>
+    <item android:id="@+id/action_clear"
+        android:title="CLEAR LIST"
+        app:showAsAction="always"/>
 
 
 </menu>

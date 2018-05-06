@@ -10,6 +10,10 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
+import android.util.Log
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,13 +24,55 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        getMenuList()
         if (intent!=null){
             if (intent.extras != null){
-                menuList = intent.extras.getString("menuList")
-                display()
+                if (intent.extras.getString("menuList") != null){
+                menuList = intent.extras.getString("menuList")}
             }
         }
+        Log.i("TAG", "display in create")
+        display()
+    }
 
+    override fun onStart() {
+        super.onStart()
+        setContentView(R.layout.activity_main)
+        getMenuList()
+        if (intent!=null){
+            if (intent.extras != null){
+                if (intent.extras.getString("menuList") != null){
+                    menuList = intent.extras.getString("menuList")}
+            }
+        }
+        Log.i("TAG", "display in start")
+
+        display()
+    }
+
+    override fun onResume(){
+        super.onResume()
+        setContentView(R.layout.activity_main)
+        getMenuList()
+        if (intent!=null){
+            if (intent.extras != null){
+                if (intent.extras.getString("menuList") != null){
+                    menuList = intent.extras.getString("menuList")}
+            }
+        }
+        Log.i("TAG", "display in resume")
+
+        display()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        saveMenuList(menuList)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        saveMenuList(menuList)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -49,6 +95,10 @@ class MainActivity : AppCompatActivity() {
         R.id.action_generate -> {
             val intent = Intent(this, generateMenu::class.java)
             this.startActivity(intent)
+            true
+        }
+        R.id.action_clear ->{
+            clearList()
             true
         }
 
@@ -77,7 +127,6 @@ class MainActivity : AppCompatActivity() {
         val intent1 = Intent(this, recipeList::class.java)
         intent1.putExtra("recipeName", recipeName)
         startActivity(intent1)
-
         if (intent!=null){
             if (intent.extras != null){
                 recipe = intent.extras.getStringArrayList("recipeName")
@@ -88,134 +137,179 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun clearList(){
+        menuList = ""
+        display()
+    }
+
     fun display(){
-        var mondayText = findViewById<TextView>(R.id.monMenu)
-        var tuesdayText = findViewById<TextView>(R.id.tueMenu)
-        var wednesdayText = findViewById<TextView>(R.id.wedMenu)
-        var thursdayText = findViewById<TextView>(R.id.thurMenu)
-        var fridayText = findViewById<TextView>(R.id.friMenu)
-        var saturdayText = findViewById<TextView>(R.id.satMenu)
-        var sundayText = findViewById<TextView>(R.id.SunMenu)
 
-        var days = menuList.split("\n")
-        var mondayString = ""
-        var tuesdayString = ""
-        var wednesdayString = ""
-        var thursdayString = ""
-        var fridayString = ""
-        var saturdayString = ""
-        var sundayString = ""
+        if (menuList != "") {
+            var mondayText = findViewById<TextView>(R.id.monMenu)
+            var tuesdayText = findViewById<TextView>(R.id.tueMenu)
+            var wednesdayText = findViewById<TextView>(R.id.wedMenu)
+            var thursdayText = findViewById<TextView>(R.id.thurMenu)
+            var fridayText = findViewById<TextView>(R.id.friMenu)
+            var saturdayText = findViewById<TextView>(R.id.satMenu)
+            var sundayText = findViewById<TextView>(R.id.SunMenu)
 
-        for (day in days) {
-            if (day.contains("Monday")) {
-                var mon = day.split(":")
-                var rec = mon[1]
-                var stuff = rec.split(",")
-                for (things in stuff) {
-                    if (things != "  ") {
-                        if (things != stuff[stuff.size - 1]) {
-                            mondayString += things + "\n"
-                        } else {
-                            mondayString += things
+            var days = menuList.split("\n")
+            var mondayString = ""
+            var tuesdayString = ""
+            var wednesdayString = ""
+            var thursdayString = ""
+            var fridayString = ""
+            var saturdayString = ""
+            var sundayString = ""
+
+            for (day in days) {
+                if (day.contains("Monday")) {
+                    var mon = day.split(":")
+                    var rec = mon[1]
+                    var stuff = rec.split(",")
+                    for (things in stuff) {
+                        if (things != "  ") {
+                            if (things != stuff[stuff.size - 1]) {
+                                mondayString += things + "\n"
+                            } else {
+                                mondayString += things
+                            }
+                        }
+                    }
+                }
+                if (day.contains("Tuesday")) {
+                    var tue = day.split(":")
+                    var rec = tue[1]
+                    var stuff = rec.split(",")
+                    for (things in stuff) {
+                        if (things != "  ") {
+                            if (things != stuff[stuff.size - 1]) {
+                                tuesdayString += things + "\n"
+                            } else {
+                                tuesdayString += things
+                            }
+                        }
+                    }
+                }
+                if (day.contains("Wednesday")) {
+                    var wed = day.split(":")
+                    var rec = wed[1]
+                    var stuff = rec.split(",")
+                    for (things in stuff) {
+                        if (things != "  ") {
+                            if (things != stuff[stuff.size - 1]) {
+                                wednesdayString += things + "\n"
+                            } else {
+                                wednesdayString += things
+                            }
+                        }
+                    }
+                }
+                if (day.contains("Thursday")) {
+                    var thurs = day.split(":")
+                    var rec = thurs[1]
+                    var stuff = rec.split(",")
+                    for (things in stuff) {
+                        if (things != "  ") {
+                            if (things != stuff[stuff.size - 1]) {
+                                thursdayString += things + "\n"
+                            } else {
+                                thursdayString += things
+                            }
+                        }
+                    }
+                }
+                if (day.contains("Friday")) {
+                    var fri = day.split(":")
+                    var rec = fri[1]
+                    var stuff = rec.split(",")
+                    for (things in stuff) {
+                        if (things != "  ") {
+                            if (things != stuff[stuff.size - 1]) {
+                                fridayString += things + "\n"
+                            } else {
+                                fridayString += things
+                            }
+                        }
+                    }
+                }
+                if (day.contains("Saturday")) {
+                    var sat = day.split(":")
+                    var rec = sat[1]
+                    var stuff = rec.split(",")
+                    for (things in stuff) {
+                        if (things != "  ") {
+                            if (things != stuff[stuff.size - 1]) {
+                                saturdayString += things + "\n"
+                            } else {
+                                saturdayString += things
+                            }
+                        }
+                    }
+                }
+                if (day.contains("Sunday")) {
+                    var sun = day.split(":")
+                    var rec = sun[1]
+                    var stuff = rec.split(",")
+                    for (things in stuff) {
+                        if (things != "  ") {
+                            if (things != stuff[stuff.size - 1]) {
+                                sundayString += things + "\n"
+                            } else {
+                                sundayString += things
+                            }
                         }
                     }
                 }
             }
-            if (day.contains("Tuesday")) {
-                var tue = day.split(":")
-                var rec = tue[1]
-                var stuff = rec.split(",")
-                for (things in stuff) {
-                    if (things != "  ") {
-                        if (things != stuff[stuff.size - 1]) {
-                            tuesdayString += things + "\n"
-                        } else {
-                            tuesdayString += things
-                        }
-                    }
-                }
-            }
-            if (day.contains("Wednesday")) {
-                var wed = day.split(":")
-                var rec = wed[1]
-                var stuff = rec.split(",")
-                for (things in stuff) {
-                    if (things != "  ") {
-                        if (things != stuff[stuff.size - 1]) {
-                            wednesdayString += things + "\n"
-                        } else {
-                            wednesdayString += things
-                        }
-                    }
-                }
-            }
-            if (day.contains("Thursday")) {
-                var thurs = day.split(":")
-                var rec = thurs[1]
-                var stuff = rec.split(",")
-                for (things in stuff) {
-                    if (things != "  ") {
-                        if (things != stuff[stuff.size - 1]) {
-                            thursdayString += things + "\n"
-                        } else {
-                            thursdayString += things
-                        }
-                    }
-                }
-            }
-            if (day.contains("Friday")) {
-                var fri = day.split(":")
-                var rec = fri[1]
-                var stuff = rec.split(",")
-                for (things in stuff) {
-                    if (things != "  ") {
-                        if (things != stuff[stuff.size - 1]) {
-                            fridayString += things + "\n"
-                        } else {
-                            fridayString += things
-                        }
-                    }
-                }
-            }
-            if (day.contains("Saturday")) {
-                var sat = day.split(":")
-                var rec = sat[1]
-                var stuff = rec.split(",")
-                for (things in stuff) {
-                    if (things != "  ") {
-                        if (things != stuff[stuff.size - 1]) {
-                            saturdayString += things + "\n"
-                        } else {
-                            saturdayString += things
-                        }
-                    }
-                }
-            }
-            if (day.contains("Sunday")) {
-                var sun = day.split(":")
-                var rec = sun[1]
-                var stuff = rec.split(",")
-                for (things in stuff) {
-                    if (things != "  ") {
-                        if (things != stuff[stuff.size - 1]) {
-                            sundayString += things + "\n"
-                        } else {
-                            sundayString += things
-                        }
-                    }
-                }
-            }
+
+            mondayText.text = mondayString
+            tuesdayText.text = tuesdayString
+            wednesdayText.text = wednesdayString
+            thursdayText.text = thursdayString
+            fridayText.text = fridayString
+            saturdayText.text = saturdayString
+            sundayText.text = sundayString
+
         }
+        else{
 
-        mondayText.text = mondayString
-        tuesdayText.text = tuesdayString
-        wednesdayText.text = wednesdayString
-        thursdayText.text = thursdayString
-        fridayText.text = fridayString
-        saturdayText.text = saturdayString
-        sundayText.text = sundayString
+            var mondayText = findViewById<TextView>(R.id.monMenu)
+            var tuesdayText = findViewById<TextView>(R.id.tueMenu)
+            var wednesdayText = findViewById<TextView>(R.id.wedMenu)
+            var thursdayText = findViewById<TextView>(R.id.thurMenu)
+            var fridayText = findViewById<TextView>(R.id.friMenu)
+            var saturdayText = findViewById<TextView>(R.id.satMenu)
+            var sundayText = findViewById<TextView>(R.id.SunMenu)
 
+            mondayText.text = ""
+            tuesdayText.text = ""
+            wednesdayText.text = ""
+            fridayText.text = ""
+            thursdayText.text = ""
+            saturdayText.text = ""
+            sundayText.text = ""
+        }
+    }
 
+    fun saveMenuList(menuList: String)
+    {
+        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        val editor : SharedPreferences.Editor = prefs.edit()
+
+        editor.putString("MenuList", menuList)
+        editor.apply()
+    }
+
+    fun getMenuList()
+    {
+        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        if(prefs.getString("MenuList","") != "")
+        {
+            menuList = prefs.getString("MenuList","")
+        }
+        else{
+        }
     }
 
     //Function to display the recipe when button is clicked

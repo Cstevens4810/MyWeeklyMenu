@@ -1,8 +1,5 @@
 package com.example.cteve.myweeklymenu
 
-/**
- * Created by KyraPhillips on 5/4/2018.
- */
 
 class Menu( var bMonday: BooleanArray,  var bTuesday: BooleanArray,  var bWednesday: BooleanArray,  var bThursday: BooleanArray,  var bFriday: BooleanArray,  var bSaturday: BooleanArray,  var bSunday: BooleanArray,  var rMonday: Array<Recipe>,  var rTuesday: Array<Recipe>,  var rWednesday: Array<Recipe>,  var rThursday: Array<Recipe>,  var rFriday: Array<Recipe>,  var rSaturday: Array<Recipe>,  var rSunday: Array<Recipe>) {
 

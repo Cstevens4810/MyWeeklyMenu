@@ -38,6 +38,8 @@ class generateMenu : AppCompatActivity() {
         menuInflater.inflate(R.menu.toolbar, menu)
         val generate = menu!!.findItem(R.id.action_generate)
         generate.isVisible = false
+        val clear = menu!!.findItem(R.id.action_clear)
+        clear.isVisible = false
         return true
     }
 
