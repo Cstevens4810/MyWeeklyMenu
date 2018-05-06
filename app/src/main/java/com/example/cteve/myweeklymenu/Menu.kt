@@ -4,61 +4,61 @@ package com.example.cteve.myweeklymenu
  * Created by KyraPhillips on 5/4/2018.
  */
 
-class Menu( var bMonday: Array<Boolean>,  var bTuesday: Array<Boolean>,  var bWednesday: Array<Boolean>,  var bThursday: Array<Boolean>,  var bFriday: Array<Boolean>,  var bSaturday: Array<Boolean>,  var bSunday: Array<Boolean>,  var rMonday: Array<Recipe>,  var rTuesday: Array<Recipe>,  var rWednesday: Array<Recipe>,  var rThursday: Array<Recipe>,  var rFriday: Array<Recipe>,  var rSaturday: Array<Recipe>,  var rSunday: Array<Recipe>, var breakfastCount: Int, var lunchCount: Int, var dinnerCount: Int) {
+class Menu( var bMonday: BooleanArray,  var bTuesday: BooleanArray,  var bWednesday: BooleanArray,  var bThursday: BooleanArray,  var bFriday: BooleanArray,  var bSaturday: BooleanArray,  var bSunday: BooleanArray,  var rMonday: Array<Recipe>,  var rTuesday: Array<Recipe>,  var rWednesday: Array<Recipe>,  var rThursday: Array<Recipe>,  var rFriday: Array<Recipe>,  var rSaturday: Array<Recipe>,  var rSunday: Array<Recipe>) {
 
-    fun getbMonday(): Array<Boolean> {
+    fun getbMonday(): BooleanArray {
         return bMonday
     }
 
-    fun setbMonday(bMonday: Array<Boolean>) {
+    fun setbMonday(bMonday: BooleanArray) {
         this.bMonday = bMonday
     }
 
-    fun getbTuesday(): Array<Boolean> {
+    fun getbTuesday(): BooleanArray {
         return bTuesday
     }
 
-    fun setbTuesday(bTuesday: Array<Boolean>) {
+    fun setbTuesday(bTuesday: BooleanArray) {
         this.bTuesday = bTuesday
     }
 
-    fun getbWednesday(): Array<Boolean> {
+    fun getbWednesday(): BooleanArray {
         return bWednesday
     }
 
-    fun setbWednesday(bWednesday: Array<Boolean>) {
+    fun setbWednesday(bWednesday: BooleanArray) {
         this.bWednesday = bWednesday
     }
 
-    fun getbThursday(): Array<Boolean> {
+    fun getbThursday(): BooleanArray {
         return bThursday
     }
 
-    fun setbThursday(bThursday: Array<Boolean>) {
+    fun setbThursday(bThursday: BooleanArray) {
         this.bThursday = bThursday
     }
 
-    fun getbFriday(): Array<Boolean> {
+    fun getbFriday(): BooleanArray {
         return bFriday
     }
 
-    fun setbFriday(bFriday: Array<Boolean>) {
+    fun setbFriday(bFriday: BooleanArray) {
         this.bFriday = bFriday
     }
 
-    fun getbSaturday(): Array<Boolean> {
+    fun getbSaturday(): BooleanArray {
         return bSaturday
     }
 
-    fun setbSaturday(bSaturday: Array<Boolean>) {
+    fun setbSaturday(bSaturday: BooleanArray) {
         this.bSaturday = bSaturday
     }
 
-    fun getbSunday(): Array<Boolean> {
+    fun getbSunday(): BooleanArray {
         return bSunday
     }
 
-    fun setbSunday(bSunday: Array<Boolean>) {
+    fun setbSunday(bSunday: BooleanArray) {
         this.bSunday = bSunday
     }
 
@@ -116,5 +116,16 @@ class Menu( var bMonday: Array<Boolean>,  var bTuesday: Array<Boolean>,  var bWe
 
     fun setrSunday(rSunday: Array<Recipe>) {
         this.rSunday = rSunday
+    }
+
+    override fun toString(): String {
+         var string = "Monday: " + rMonday[0].name + " , " + rMonday[1].name + " , " + rMonday[2].name + "\n"
+         string = string + "Tuesday: " + rTuesday[0].name + " , " + rTuesday[1].name + " , " + rTuesday[2].name + "\n"
+         string = string + "Wednesday: " + rWednesday[0].name + " , " + rWednesday[1].name + " , " + rWednesday[2].name + "\n"
+         string = string + "Thursday: " + rThursday[0].name + " , " + rThursday[1].name + " , " + rThursday[2].name + "\n"
+         string = string + "Friday: " + rFriday[0].name + " , " + rFriday[1].name + " , " + rFriday[2].name + "\n"
+         string = string + "Saturday: " + rSaturday[0].name + " , " + rSaturday[1].name + " , " + rSaturday[2].name + "\n"
+        string = string + "Sunday: " + rSunday[0].name + " , " + rSunday[1].name + " , " + rSunday[2].name
+        return string
     }
 }

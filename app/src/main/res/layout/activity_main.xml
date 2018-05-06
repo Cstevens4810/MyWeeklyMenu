@@ -1,319 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.cteve.myweeklymenu.MainActivity">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.example.cteve.myweeklymenu.MainActivity">
 
 
-    <TextView
-        android:id="@+id/mondayView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/monday"
-        app:layout_constraintBaseline_toBaselineOf="@+id/monBreakButton"
-        app:layout_constraintEnd_toStartOf="@+id/monBreakButton"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent" />
+<TextView
+    android:id="@+id/monView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:text="Monday"
+    android:textColor="#000000"
+    android:textSize="20sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.027"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tuesdayView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/tuesday"
-        app:layout_constraintBottom_toBottomOf="@+id/tuesBreakButton"
-        app:layout_constraintEnd_toStartOf="@+id/tuesBreakButton"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent" />
+<TextView
+    android:id="@+id/monMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:text=""
+    android:textColor="#000000"
+    android:textSize="14sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.025"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/monView" />
 
-    <TextView
-        android:id="@+id/wednesdayView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="33dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/wednesday"
-        app:layout_constraintBottom_toTopOf="@+id/thursBreakButton"
-        app:layout_constraintEnd_toStartOf="@+id/wednsBreakButton"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent" />
+<TextView
+    android:id="@+id/tueView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="16dp"
+    android:text="Tuesday"
+    android:textColor="#000000"
+    android:textSize="20sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.027"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/monMenu" />
 
-    <TextView
-        android:id="@+id/thursdayView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/thursday"
-        app:layout_constraintBaseline_toBaselineOf="@+id/thursBreakButton"
-        app:layout_constraintEnd_toStartOf="@+id/thursBreakButton"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent" />
+<TextView
+    android:id="@+id/tueMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="20dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:text=""
+    android:textColor="#000000"
+    android:textSize="14sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.025"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tueView" />
 
-    <TextView
-        android:id="@+id/fridayView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/friday"
-        app:layout_constraintBottom_toBottomOf="@+id/friBreakButton"
-        app:layout_constraintStart_toStartOf="parent" />
+<TextView
+    android:id="@+id/wedMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:text=""
+    android:textColor="#000000"
+    android:textSize="14sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.025"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/wedView" />
 
-    <TextView
-        android:id="@+id/saturdayView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/saturday"
-        app:layout_constraintBottom_toBottomOf="@+id/satBreakButton"
-        app:layout_constraintStart_toStartOf="parent" />
+<TextView
+    android:id="@+id/wedView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="16dp"
+    android:text="Wednesday"
+    android:textColor="#000000"
+    android:textSize="20sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.027"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tueMenu" />
 
-    <TextView
-        android:id="@+id/sundayView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="33dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/sunday"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+<TextView
+    android:id="@+id/thurView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="16dp"
+    android:text="Thursday"
+    android:textColor="#000000"
+    android:textSize="20sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.025"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/wedMenu" />
 
-    <Button
-        android:id="@+id/monBreakButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="2dp"
-        android:text=""
-        android:onClick="displayRecipe"
-        app:layout_constraintBaseline_toBaselineOf="@+id/monLunButton"
-        app:layout_constraintEnd_toStartOf="@+id/monLunButton"
-        app:layout_constraintStart_toEndOf="@+id/mondayView" />
+<TextView
+    android:id="@+id/thurMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:text=""
+    android:textColor="#000000"
+    android:textSize="14sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.025"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/thurView" />
 
-    <Button
-        android:id="@+id/monLunButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:text=""
-        app:layout_constraintEnd_toStartOf="@+id/monDinnerButton"
-        app:layout_constraintStart_toEndOf="@+id/monBreakButton"
-        app:layout_constraintTop_toBottomOf="@+id/LunView" />
+<TextView
+    android:id="@+id/friView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="16dp"
+    android:text="Friday"
+    android:textColor="#000000"
+    android:textSize="20sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.025"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/thurMenu" />
 
-    <Button
-        android:id="@+id/monDinnerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/monLunButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/monLunButton" />
+<TextView
+    android:id="@+id/friMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:text=""
+    android:textColor="#000000"
+    android:textSize="14sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.025"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/friView" />
 
-    <TextView
-        android:id="@+id/brekkiView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/breakfast"
-        app:layout_constraintStart_toStartOf="@+id/monBreakButton"
-        app:layout_constraintTop_toTopOf="parent" />
+<TextView
+    android:id="@+id/satView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="16dp"
+    android:text="Saturday"
+    android:textColor="#000000"
+    android:textSize="20sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.025"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/friMenu" />
 
-    <TextView
-        android:id="@+id/LunView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/lunch"
-        app:layout_constraintStart_toStartOf="@+id/monLunButton"
-        app:layout_constraintTop_toTopOf="parent" />
+<TextView
+    android:id="@+id/satMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:text=""
+    android:textColor="#000000"
+    android:textSize="14sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.025"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/satView" />
 
-    <TextView
-        android:id="@+id/dinView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="45dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/dinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<TextView
+    android:id="@+id/sunView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="16dp"
+    android:text="Sunday"
+    android:textColor="#000000"
+    android:textSize="20sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.025"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/satMenu" />
 
-    <Button
-        android:id="@+id/tuesBreakButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="2dp"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/tuesLunButton"
-        app:layout_constraintEnd_toStartOf="@+id/tuesLunButton"
-        app:layout_constraintStart_toEndOf="@+id/tuesdayView" />
+<TextView
+    android:id="@+id/SunMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:text=""
+    android:textColor="#000000"
+    android:textSize="14sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.025"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/sunView"
+    app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/wednsBreakButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/wednesdayView"
-        app:layout_constraintEnd_toStartOf="@+id/wednsLunButton"
-        app:layout_constraintStart_toEndOf="@+id/wednesdayView" />
 
-    <Button
-        android:id="@+id/thursBreakButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="2dp"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/thursLunButton"
-        app:layout_constraintEnd_toStartOf="@+id/thursLunButton"
-        app:layout_constraintStart_toEndOf="@+id/thursdayView" />
-
-    <Button
-        android:id="@+id/friBreakButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/friLunButton"
-        app:layout_constraintStart_toStartOf="@+id/satBreakButton" />
-
-    <Button
-        android:id="@+id/satBreakButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="13dp"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/satLunButton"
-        app:layout_constraintEnd_toStartOf="@+id/satLunButton" />
-
-    <Button
-        android:id="@+id/sunBreakButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="13dp"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/sunLunButton" />
-
-    <Button
-        android:id="@+id/tuesLunButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:text=""
-        app:layout_constraintEnd_toStartOf="@+id/tuesDinnerButton"
-        app:layout_constraintStart_toEndOf="@+id/tuesBreakButton"
-        app:layout_constraintTop_toBottomOf="@+id/monLunButton" />
-
-    <Button
-        android:id="@+id/tuesDinnerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/tuesLunButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tuesLunButton" />
-
-    <Button
-        android:id="@+id/wednsLunButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:text=""
-        app:layout_constraintEnd_toStartOf="@+id/wednsDinnerButton"
-        app:layout_constraintStart_toEndOf="@+id/wednsBreakButton"
-        app:layout_constraintTop_toTopOf="@+id/wednsBreakButton" />
-
-    <Button
-        android:id="@+id/thursLunButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/friLunButton"
-        app:layout_constraintEnd_toStartOf="@+id/thursDinnerButton"
-        app:layout_constraintStart_toEndOf="@+id/thursBreakButton" />
-
-    <Button
-        android:id="@+id/wednsDinnerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/wednsLunButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/wednsLunButton" />
-
-    <Button
-        android:id="@+id/friLunButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/satLunButton"
-        app:layout_constraintStart_toStartOf="@+id/satLunButton" />
-
-    <Button
-        android:id="@+id/satLunButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="11dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/sunLunButton"
-        app:layout_constraintEnd_toStartOf="@+id/satDinnerButton" />
-
-    <Button
-        android:id="@+id/sunLunButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="11dp"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/sunDinnerButton"
-        app:layout_constraintEnd_toStartOf="@+id/sunDinnerButton" />
-
-    <Button
-        android:id="@+id/thursDinnerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/thursLunButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/thursLunButton" />
-
-    <Button
-        android:id="@+id/friDinnerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/friLunButton"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/satDinnerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:text=""
-        app:layout_constraintBaseline_toBaselineOf="@+id/satLunButton"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/sunDinnerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="1dp"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>
