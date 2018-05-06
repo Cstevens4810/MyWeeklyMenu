@@ -363,7 +363,6 @@ class generateMenu : AppCompatActivity() {
 
         menu = Menu(bMonday, bTuesday, bWednesday, bThursday, bFriday, bSaturday, bSunday, rMonday, rTuesday, rWednesday, rThursday, rFriday, rSaturday, rSunday)
 
-        Toast.makeText(applicationContext,menu.toString(), Toast.LENGTH_LONG).show()
         Thread.sleep(1000)
         sendMenu()
 

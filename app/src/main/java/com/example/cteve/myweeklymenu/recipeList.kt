@@ -177,7 +177,6 @@ class recipeList : AppCompatActivity() {
             var rDetails = detailsText.text.toString()
             var newRecipe = Recipe(rName, breakfast, lunch, dinner, rDetails)
             var text = newRecipe.toString()
-            Toast.makeText(applicationContext, newRecipe.toString(), Toast.LENGTH_LONG).show()
             recipes.add(newRecipe)
             display()
         }
