@@ -306,7 +306,7 @@ class recipeList : AppCompatActivity(), GestureDetector.OnGestureListener {
             val selectedItem = parent.getItemAtPosition(position) as String
             Log.i("---REMOVE---", "LONG TOUCH DETECTED")
             val builder = AlertDialog.Builder(this@recipeList)
-            Log.i("---REMOVE---", "BUILDER MADE")
+
             builder.setTitle("Delete " + selectedItem + "?")
             Log.i("---REMOVE---", "TITLE MADE")
             builder.setPositiveButton("Delete") { dialog, which ->
