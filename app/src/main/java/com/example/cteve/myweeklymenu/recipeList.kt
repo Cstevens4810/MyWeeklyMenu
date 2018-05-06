@@ -5,8 +5,6 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
-import android.view.Menu
-import android.view.MenuItem
 import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.graphics.Bitmap
@@ -18,8 +16,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.JsonReader
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
+import android.view.*
+import android.view.Menu
 import android.widget.*
 import com.google.api.client.extensions.android.json.AndroidJsonFactory
 import com.google.api.client.http.javanet.NetHttpTransport
@@ -38,7 +36,7 @@ import java.io.InputStreamReader
 import java.util.*
 
 
-class recipeList : AppCompatActivity() {
+class recipeList : AppCompatActivity(), GestureDetector.OnGestureListener {
 
     var recipes = ArrayList<Recipe>()
 
@@ -248,6 +246,90 @@ class recipeList : AppCompatActivity() {
         val adapterD = ArrayAdapter(this, android.R.layout.simple_list_item_1, tempDList)
         dList.adapter = adapterD
 
+        bList.onItemLongClickListener = AdapterView.OnItemLongClickListener{ parent, view, position, id ->
+            val selectedItem = parent.getItemAtPosition(position) as String
+            Log.i("---REMOVE---", "LONG TOUCH DETECTED")
+            val builder = AlertDialog.Builder(this@recipeList)
+            Log.i("---REMOVE---", "BUILDER MADE")
+            builder.setTitle("Delete " + selectedItem + "?")
+            Log.i("---REMOVE---", "TITLE MADE")
+            builder.setPositiveButton("Delete") { dialog, which ->
+                var removeRecipe: Recipe? = null
+                for (recipe in recipes) {
+                    Log.i("---REMOVE---", "LOOKING FOR RECIPE " + recipe.name)
+                    if (recipe.name == selectedItem) {
+                        Log.i("---REMOVE---", "REMOVE " + recipe.name)
+                        builder.setMessage(recipe.recipe)
+                        removeRecipe = recipe
+                    }
+                }
+                Log.i("---REMOVE---", "REMOVING RECIPE")
+                recipes.remove(removeRecipe)
+                display()
+            }
+            val dialog: AlertDialog = builder.create()
+            Log.i("---REMOVE---", "SHOWING DIALOG")
+            dialog.show()
+
+            true
+        }
+
+        lList.onItemLongClickListener = AdapterView.OnItemLongClickListener{ parent, view, position, id ->
+            val selectedItem = parent.getItemAtPosition(position) as String
+            Log.i("---REMOVE---", "LONG TOUCH DETECTED")
+            val builder = AlertDialog.Builder(this@recipeList)
+            Log.i("---REMOVE---", "BUILDER MADE")
+            builder.setTitle("Delete " + selectedItem + "?")
+            Log.i("---REMOVE---", "TITLE MADE")
+            builder.setPositiveButton("Delete") { dialog, which ->
+                var removeRecipe: Recipe? = null
+                for (recipe in recipes) {
+                    Log.i("---REMOVE---", "LOOKING FOR RECIPE " + recipe.name)
+                    if (recipe.name == selectedItem) {
+                        Log.i("---REMOVE---", "REMOVE " + recipe.name)
+                        builder.setMessage(recipe.recipe)
+                        removeRecipe = recipe
+                    }
+                }
+                Log.i("---REMOVE---", "REMOVING RECIPE")
+                recipes.remove(removeRecipe)
+                display()
+            }
+            val dialog: AlertDialog = builder.create()
+            Log.i("---REMOVE---", "SHOWING DIALOG")
+            dialog.show()
+
+            true
+        }
+
+        dList.onItemLongClickListener = AdapterView.OnItemLongClickListener{ parent, view, position, id ->
+            val selectedItem = parent.getItemAtPosition(position) as String
+            Log.i("---REMOVE---", "LONG TOUCH DETECTED")
+            val builder = AlertDialog.Builder(this@recipeList)
+            Log.i("---REMOVE---", "BUILDER MADE")
+            builder.setTitle("Delete " + selectedItem + "?")
+            Log.i("---REMOVE---", "TITLE MADE")
+            builder.setPositiveButton("Delete") { dialog, which ->
+                var removeRecipe: Recipe? = null
+                for (recipe in recipes) {
+                    Log.i("---REMOVE---", "LOOKING FOR RECIPE " + recipe.name)
+                    if (recipe.name == selectedItem) {
+                        Log.i("---REMOVE---", "REMOVE " + recipe.name)
+                        builder.setMessage(recipe.recipe)
+                        removeRecipe = recipe
+                    }
+                }
+                Log.i("---REMOVE---", "REMOVING RECIPE")
+                recipes.remove(removeRecipe)
+                display()
+            }
+            val dialog: AlertDialog = builder.create()
+            Log.i("---REMOVE---", "SHOWING DIALOG")
+            dialog.show()
+
+            true
+        }
+
         bList.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             // Get the selected item text from ListView
             val selectedItem = parent.getItemAtPosition(position) as String
@@ -265,6 +347,7 @@ class recipeList : AppCompatActivity() {
             dialog.show()
 
         }
+
 
         lList.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             // Get the selected item text from ListView
@@ -499,6 +582,32 @@ class recipeList : AppCompatActivity() {
             Log.i(TAG, "******ERROR***** - Retrieval of image failed")
         }
     }
+
+    override fun onDown(event: MotionEvent): Boolean {
+        return true
+    }
+
+    override fun onFling(event1: MotionEvent, event2: MotionEvent,
+                         velocityX: Float, velocityY: Float): Boolean {
+        return true
+    }
+
+    override fun onLongPress(event: MotionEvent) {
+
+    }
+
+    override fun onScroll(e1: MotionEvent, e2: MotionEvent,
+                          distanceX: Float, distanceY: Float): Boolean {
+        return true
+    }
+
+    override fun onShowPress(event: MotionEvent) {
+    }
+
+    override fun onSingleTapUp(event: MotionEvent): Boolean {
+        return true
+    }
+
 
     ////////////////////////  Decode Json /////////////////////////
 
