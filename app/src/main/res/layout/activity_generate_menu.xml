@@ -14,6 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="53dp"
         android:text="Monday"
+        android:onClick="mondayButton"
         app:layout_constraintEnd_toStartOf="@+id/monDinBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,6 +27,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="17dp"
         android:text="Tuesday"
+        android:onClick="tuesdayButton"
         app:layout_constraintEnd_toStartOf="@+id/tuesDinBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mondayButton" />
@@ -38,6 +40,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"
         android:text="Wednesday"
+        android:onClick="wednesdayButton"
         app:layout_constraintEnd_toStartOf="@+id/wednsDinBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tuesdayButton" />
@@ -50,6 +53,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="14dp"
         android:text="Thursday"
+        android:onClick="thursdayButton"
         app:layout_constraintEnd_toStartOf="@+id/thursDinBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wednesdayButton" />
@@ -62,6 +66,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="17dp"
         android:text="Friday"
+        android:onClick="fridayButton"
         app:layout_constraintEnd_toStartOf="@+id/friDinBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thursdayButton" />
@@ -74,6 +79,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="14dp"
         android:text="Saturday"
+        android:onClick="saturdayButton"
         app:layout_constraintEnd_toStartOf="@+id/satDinBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fridayButton" />
@@ -87,10 +93,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Sunday"
+        android:onClick="sundayButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/sunDinBox"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saturdayButton" />
+        app:layout_constraintTop_toBottomOf="@+id/saturdayButton"
+        app:layout_constraintVertical_bias="0.206" />
 
     <TextView
         android:id="@+id/breakfastView"
@@ -252,15 +260,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/friLunBox"
+        android:layout_marginTop="34dp"
         app:layout_constraintEnd_toStartOf="@+id/friLunBox"
-        app:layout_constraintStart_toEndOf="@+id/fridayButton" />
+        app:layout_constraintStart_toEndOf="@+id/fridayButton"
+        app:layout_constraintTop_toBottomOf="@+id/thursBreakBox" />
 
     <CheckBox
         android:id="@+id/friLunBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="44dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toTopOf="@+id/satLunBox"
@@ -290,7 +299,7 @@
         android:id="@+id/satLunBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toTopOf="@+id/sunLunBox"
@@ -302,14 +311,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="61dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/satLunBox"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/saturdayButton" />
+        app:layout_constraintStart_toEndOf="@+id/saturdayButton"
+        app:layout_constraintTop_toBottomOf="@+id/friDinBox" />
 
     <CheckBox
         android:id="@+id/sunBreakBox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/sunLunBox"
@@ -328,12 +338,27 @@
 
     <CheckBox
         android:id="@+id/sunDinBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="47dp"
+        android:layout_width="33dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="120dp"
         android:layout_marginEnd="61dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/sundayButton" />
+
+    <Button
+        android:id="@+id/generateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="Create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sunBreakBox" />
 
 </android.support.constraint.ConstraintLayout>
